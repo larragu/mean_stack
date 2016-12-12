@@ -1,0 +1,86 @@
+
+.calculator {
+
+	font-size:0px;
+}
+
+.calcDisplay {
+	display:block;
+	width:178px;
+	height:50px;
+	background:gray;
+	color:white;
+	border-bottom:1px solid black;
+	border-left:2px solid black;
+	border-right:2px solid black;
+	border-top:2px solid black;
+	border-top-left-radius:15px;
+	border-top-right-radius:15px;
+	font-size:30px;
+	text-align:right;
+	padding-right:20px;
+	padding-top:20px;
+	overflow-x: auto;
+	overflow-y:hidden;
+}
+
+.buttonsContainer {
+	border-left:1px solid black;
+	border-right:1px solid black;
+	border-bottom:1px solid black;
+	width:200px;
+}
+
+.calcButton {
+
+	border:.05px solid black;
+	width:50px;
+	height:50px;
+	display:inline-block;
+	text-align: center;
+	vertical-align: middle;
+	cursor:pointer;
+	font-size:25px;
+}
+
+.calcButtonEmpty
+
+.calcButtonGray {
+	background:rgba(128, 128, 128, 0.57);
+}
+
+.calcButtonGray:active
+{
+    background:gray;
+}
+
+.calcButtonGray:focus {
+  outline: none;
+}
+
+.calcButtonLightGray:active
+{
+    background:gray;
+}
+
+.calcButtonLightGray:focus {
+  outline: none;
+}
+
+.calcButtonLightGray {
+	background:lightgray;
+}
+
+.calcButtonOrange:active
+{
+    background:gray;
+}
+
+.calcButtonOrange:focus {
+  outline: none;
+}
+
+.calcButtonOrange {
+	background:orange;
+	color:white;
+}

@@ -1,0 +1,11 @@
+<div class="chatFooter">
+	<div ng-if="!chatroomService.isLoggedIn">
+		Enter your username: 
+		<input type="text" class="chatLogin" ng-model="newUsername"/>
+		<button ng-click="login(newUsername)">LOGIN</button>
+	</div>
+	<div ng-if="chatroomService.isLoggedIn">
+		<input type="text" class="chatInput" ng-model="newMessage"/>
+		<input type="button" value="SEND" ng-click="sendMessage(newMessage)"/>
+	</div>
+</div>

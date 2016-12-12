@@ -1,0 +1,15 @@
+<div class="chatroom">
+	<chat-header>
+	</chat-header>
+	<div class="chatLeftContainer">
+		<chat-box>
+		</chat-box>
+		<chat-footer>
+		</chat-footer>
+	</div>
+	<div class="chatRightContainer">
+		<div ng-repeat="username in chatroomService.users">
+			<span class="chatUserlist">{{username}}</span>
+		</div>
+	</div>
+</div>

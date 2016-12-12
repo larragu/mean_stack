@@ -1,0 +1,7 @@
+<div class="chatHeader">
+	Alex's Chatroom
+	<div ng-if="chatroomService.isLoggedIn">
+		<span class="chatWelcome">Welcome {{chatroomService.username}}!</span>
+		<input type="button" class="chatLogOut" value="LOG OUT" ng-click="logOut()"/>
+	</div>
+</div>

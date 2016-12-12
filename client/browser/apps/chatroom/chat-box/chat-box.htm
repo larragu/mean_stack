@@ -1,0 +1,5 @@
+<div class="chatBox">
+	<div ng-repeat="message in chatroomService.messages">
+		<span class="chatMessage">{{message.timestamp}} <b>{{message.username}}</b>: {{message.message}}</span>
+	</div>
+</div>

@@ -1,0 +1,78 @@
+body {
+	margin:auto;
+	width:50%;
+}
+
+.chatroom {
+	display:block;
+	width:500px;
+	height:400px;
+	border: 1px solid black;
+}
+
+.chatWelcome {
+	float:left;
+	margin-top:10px;
+	margin-left:20px;
+}
+
+
+.chatLogOut {
+	float:right;
+	margin-top:10px;
+	margin-right:20px;
+
+}
+
+.chatLeftContainer {
+	float:left;
+	height:500px;
+	width:350px;
+}
+
+.chatRightContainer {
+	float:right;
+	height:337px;
+	width:91px;
+	border:1px solid black;
+	padding:5px;
+	overflow-x:hidden;
+}
+
+.chatUserlist {
+	color:green;
+	font-style: bold;
+}
+
+.chatHeader {
+	height:50px;
+	width:500px;
+	border: 1px solid black;
+	text-align: center;
+}
+
+.chatBox {
+	height:300px;
+	width:396px;
+	border:1px solid red;
+	overflow-x:hidden;
+	overflow-y:scroll;
+}
+
+.chatFooter {
+	padding:10px;
+	width:500px;
+	height:50px;
+}
+
+.chatMessage {
+	width:395px;
+	border:1px solid green;
+	display:block;
+	overflow-x: hidden;
+	word-wrap: break-word
+}
+
+.chatInput {
+	width:300px;
+}

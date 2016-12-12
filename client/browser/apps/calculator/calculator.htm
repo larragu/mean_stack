@@ -1,0 +1,98 @@
+<div class="calculator">
+	Calculator
+	<div>ABOUT</div>
+	<div class="calcDisplay">
+		{{calculator.input}}
+	</div>
+	<div class="buttonsContainer">
+		<div>
+			<input type="button" 
+				value="AC" 
+				class="calcButton calcButtonGray" 
+				ng-click="calculator.calculate('ac')"/>
+			<input type="button" 
+				value="(" 
+				class="calcButton calcButtonGray"
+				ng-click="calculator.calculate('(')"/>
+			<input type="button" 
+				value=")" 
+				class="calcButton calcButtonGray"
+				ng-click="calculator.calculate(')')"/>
+			<input type="button" 
+				value="/" 
+				class="calcButton calcButtonOrange"
+				ng-click="calculator.calculate('/')"/>
+		</div>
+		<div>
+			<input type="button" 
+				value="7" 
+				class="calcButton calcButtonLightGray"
+				ng-click="calculator.calculate('7')"/>
+			<input type="button" 
+				value="8" 
+				class="calcButton calcButtonLightGray"
+				ng-click="calculator.calculate('8')"/>
+			<input type="button" 
+				value="9" 
+				class="calcButton calcButtonLightGray"
+				ng-click="calculator.calculate('9')"/>
+			<input type="button" 
+				value="x" 
+				class="calcButton calcButtonOrange"
+				ng-click="calculator.calculate('*')"/>
+		</div>
+		<div>
+			<input type="button" 
+				value="4" 
+				class="calcButton calcButtonLightGray"
+				ng-click="calculator.calculate('4')"/>
+			<input type="button" 
+				value="5" 
+				class="calcButton calcButtonLightGray"
+				ng-click="calculator.calculate('5')"/>
+			<input type="button" 
+				value="6" 
+				class="calcButton calcButtonLightGray"
+				ng-click="calculator.calculate('6')"/>
+			<input type="button" 
+				value="-" 
+				class="calcButton calcButtonOrange"
+				ng-click="calculator.calculate('-')"/>
+		</div>
+		<div>
+			<input type="button" 
+				value="1" 
+				class="calcButton calcButtonLightGray" 
+				ng-click="calculator.calculate('1')"/>
+			<input type="button" 
+				value="2" 
+				class="calcButton calcButtonLightGray" 
+				ng-click="calculator.calculate('2')"/>
+			<input type="button" 
+				value="3" 
+				class="calcButton calcButtonLightGray" 
+				ng-click="calculator.calculate('3')"/>
+			<input type="button" 
+				value="+" 
+				class="calcButton calcButtonOrange" 
+				ng-click="calculator.calculate('+')"/>
+		</div>
+		<div>
+			<input type="button" 
+				value="0" 
+				class="calcButton calcButtonLightGray" 
+				ng-click="calculator.calculate('0')"/>
+			<input type="button" 
+				value="" 
+				class="calcButton calcButtonLightGray" />
+			<input type="button" 
+				value="." 
+				class="calcButton calcButtonLightGray" 
+				ng-click="calculator.calculate('.')"/>
+			<input type="button" 
+			value="=" 
+			class="calcButton calcButtonOrange" 
+			ng-click="calculator.calculate('=')"/>
+		</div>
+	</div>
+</div>
