@@ -1,0 +1,1 @@
+Simple calculator app made to showcase a little bit of Angular 1.x and CSS skills.
