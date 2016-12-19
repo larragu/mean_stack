@@ -8,8 +8,11 @@
 		</chat-footer>
 	</div>
 	<div class="chatRightContainer">
-		<div ng-repeat="username in chatroomService.users">
-			<span class="chatUserlist">{{username}}</span>
+		<div class="onlineUsers">
+			Users Online: {{chatroomService.totalUsers}}
+		</div>
+		<div ng-repeat="user in chatroomService.users">
+			<span class="chatUserlist">{{user.username}}</span>
 		</div>
 	</div>
 </div>

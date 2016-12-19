@@ -1,19 +1,17 @@
 'user strict';
 angular.module('chatroomApp')
 
-.controller('chatroomController',['$scope','socketService', 'chatroomService',
-function($scope,socketService,chatroomService) {
+.controller('chatroomController',['$scope', 'chatroomService','toolboxService',
+function($scope,chatroomService,toolboxService) {
 
 	$scope.chatroomService = chatroomService;
-
-	$scope.newUsername = null;
-
-	$scope.newMessage = null;
-
+	$scope.formatTimestamp = toolboxService.formatTimestamp;
 
 	$scope.connect = function() {
 
 		chatroomService.connect();
+		chatroomService.getMessages();
+		chatroomService.getUsers();
 
 	}
 
@@ -22,7 +20,6 @@ function($scope,socketService,chatroomService) {
 	$scope.login = function(newUsername) {
 
 		chatroomService.login(newUsername);
-		$scope.newUsername = null;
 
 	}
 
@@ -35,7 +32,6 @@ function($scope,socketService,chatroomService) {
 	$scope.sendMessage = function(newMessage) {
 
 		chatroomService.sendMessage(newMessage);
-		$scope.newMessage = null;
 	}
 
 	$scope.connect();

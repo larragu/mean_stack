@@ -7,6 +7,7 @@ var path = require('path');
 var http = require('http');
 var server = http.createServer(app);
 var io = require('socket.io')(server);
+var port= 3000;
 
 //Apps
 var calculatorApp = require('./apps/calculator/app');
@@ -22,6 +23,11 @@ router.use('/chatroom',chatroomApp);
 
 app.use(router);
 
-server.listen(3000,function() {
-	console.log("Server has started!");
+server.listen(port,function() {
+	console.log('--------------------------------');
+	console.log("Server started!");
+	console.log("Port: ",port);
+	console.log('');
+	console.log('Developer: Alex Larragueta');
+	console.log('--------------------------------');
 });

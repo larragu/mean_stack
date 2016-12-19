@@ -1,5 +1,5 @@
-<div class="chatBox">
+<div class="chatBox" scroll-glue>
 	<div ng-repeat="message in chatroomService.messages">
-		<span class="chatMessage">{{message.timestamp}} <b>{{message.username}}</b>: {{message.message}}</span>
+		<span class="chatMessage">{{formatTimestamp(message.timestamp)}} <b>{{message.username}}</b>: {{message.message}}</span>
 	</div>
 </div>

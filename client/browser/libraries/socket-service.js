@@ -4,9 +4,9 @@ angular.module('chatroomApp').
 service('socketService', function (socketFactory) {
   var service = {};
 
-  service.connect = function() {
+  service.connect = function(namespace) {
 
-	  var myIoSocket = io.connect('/chatroom');
+	  var myIoSocket = io.connect(namespace);
 
 	  service.mySocket = socketFactory({
 	    ioSocket: myIoSocket

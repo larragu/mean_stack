@@ -39,6 +39,11 @@ body {
 	overflow-x:hidden;
 }
 
+.onlineUsers {
+	font-size: 11px;
+	border-bottom: 1px solid black;
+}
+
 .chatUserlist {
 	color:green;
 	font-style: bold;

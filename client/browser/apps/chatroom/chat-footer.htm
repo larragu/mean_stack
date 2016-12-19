@@ -6,6 +6,6 @@
 	</div>
 	<div ng-if="chatroomService.isLoggedIn">
 		<input type="text" class="chatInput" ng-model="newMessage"/>
-		<input type="button" value="SEND" ng-click="sendMessage(newMessage)"/>
+		<input type="button" value="SEND" ng-click="sendMessage(newMessage);newMessage = null"/>
 	</div>
 </div>

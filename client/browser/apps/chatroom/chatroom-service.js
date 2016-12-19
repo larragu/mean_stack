@@ -2,7 +2,7 @@
 
 angular.module('chatroomApp')
 
-.service('chatroomService',function(socketService) {
+.service('chatroomService',function(socketService,Message,User) {
 
 	var service = {};
 
@@ -16,48 +16,57 @@ angular.module('chatroomApp')
 
 	service.users = [];
 
+	service.getMessages = function(callback) {
+
+		service.messages = Message.query(function() {
+
+			service.messages.reverse();
+
+		})
+
+	}
+
+	service.getUsers = function(callback) {
+
+		service.users = User.query(function() {
+
+		});
+
+	}
+
 	service.connect = function(callback) {
 
-		socketService.connect();
+		socketService.connect('/chatroom');
 
-		socketService.mySocket.on('loggedIn', function(username) {
+		socketService.mySocket.on('messages', function (messageData) {
 
-			service.username = username;
+			service.messages.push(messageData);
+	   		
+		});
+
+		socketService.mySocket.on("logged in", function(userData) {
+
+			service.username = userData.username;
 			service.isLoggedIn = true;
 
-			service.users.push(username);
-			service.totalUsers++;
-
-		socketService.mySocket.on('newMessage', function (messageData) {
-
-			service.messages.push(messageData);
-	   		
 		});
 
-		socketService.mySocket.on('messageReceived', function (messageData) {
+		socketService.mySocket.on("user joined", function(userData) {
 
-			service.messages.push(messageData);
-	   		
+			service.users.push({username:userData.username});
+			service.totalUsers++;
+			service.messages.push(userData.messageData);
+
 		});
 
+		socketService.mySocket.on("user left", function(username) {
 
-		socketService.mySocket.on("userJoined", function(userData) {
 
-			service.users.push(userData.username);
-			service.totalUsers++;
-
-		})
-
-		socketService.mySocket.on("userLeft", function(userData) {
-
-			var index = service.users.indexOf(userData.username);
-			if (index !== -1) {
-				service.users.splice(index, 1);
-			}
+			service.users = service.users.filter(function( obj ) {
+			    return obj.username !== username
+			});
 
 			service.totalUsers--;
-
-		})
 
 		});
 	}
@@ -87,6 +96,7 @@ angular.module('chatroomApp')
 		newMessageData.username = service.username;
 		newMessageData.message = newMessage;
 		socketService.mySocket.emit('sendMessage',newMessageData);
+		newMessage = null;
 	}
 
 	return service;
