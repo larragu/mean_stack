@@ -8,7 +8,7 @@ angular.module('chatroomApp')
 		templateUrl: 'chatroom.htm',
 		replace: true,
 		restrict: 'E',
-		controller: 'chatroomController',
+		controller: 'chatroomCtrl',
 	}
 
 })

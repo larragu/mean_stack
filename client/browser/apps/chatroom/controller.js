@@ -1,8 +1,8 @@
 'user strict';
 angular.module('chatroomApp')
 
-.controller('chatroomController',['$scope', 'chatroomService','toolboxService',
-function($scope,chatroomService,toolboxService) {
+.controller('chatroomCtrl',['$scope', 'chatroomService','toolboxService','facebookService',
+function($scope,chatroomService,toolboxService,facebookService) {
 
 	$scope.chatroomService = chatroomService;
 	$scope.formatTimestamp = toolboxService.formatTimestamp;
@@ -15,11 +15,20 @@ function($scope,chatroomService,toolboxService) {
 
 	}
 
-
-
-	$scope.login = function(newUsername) {
+	$scope.oldLogin = function(newUsername) {
 
 		chatroomService.login(newUsername);
+
+	}
+
+	$scope.login = function() {
+
+		facebookService.login(function(userData) {
+
+			chatroomService.login(userData.username);
+
+		});
+
 
 	}
 
