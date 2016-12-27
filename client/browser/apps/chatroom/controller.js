@@ -1,8 +1,10 @@
 'user strict';
 angular.module('chatroomApp')
 
-.controller('chatroomCtrl',['$scope', 'chatroomService','toolboxService','facebookService',
-function($scope,chatroomService,toolboxService,facebookService) {
+.controller('chatroomCtrl',['$scope', 'chatroomService',
+	'toolboxService','facebookService','authenticationService',
+function($scope,chatroomService,
+	toolboxService,facebookService,authenticationService) {
 
 	$scope.chatroomService = chatroomService;
 	$scope.formatTimestamp = toolboxService.formatTimestamp;
@@ -10,24 +12,25 @@ function($scope,chatroomService,toolboxService,facebookService) {
 	$scope.connect = function() {
 
 		chatroomService.connect();
-		chatroomService.getMessages();
-		chatroomService.getUsers();
-
-	}
-
-	$scope.oldLogin = function(newUsername) {
-
-		chatroomService.login(newUsername);
 
 	}
 
 	$scope.login = function() {
 
-		facebookService.login(function(userData) {
+		facebookService.login();
+	}
 
-			chatroomService.login(userData.username);
+	$scope.initialize = function() {
 
-		});
+		//Let socket feed connect before retrieving chat data
+		setTimeout(function(){	
+
+			chatroomService.checkLoginStatus();
+
+			chatroomService.getMessages();
+			chatroomService.getUsers();
+
+		}, 500);
 
 
 	}
@@ -43,7 +46,9 @@ function($scope,chatroomService,toolboxService,facebookService) {
 		chatroomService.sendMessage(newMessage);
 	}
 
-	$scope.connect();
+	$scope.initialize();
+
+
 
 
 }]);

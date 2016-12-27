@@ -1,7 +1,7 @@
 'user strict';
 
 angular.module('chatroomApp').
-service('socketService', function (socketFactory) {
+service('socketService',['socketFactory', function (socketFactory) {
   var service = {};
 
   service.connect = function(namespace) {
@@ -15,4 +15,4 @@ service('socketService', function (socketFactory) {
   }
 
   return service;
-});
+}]);

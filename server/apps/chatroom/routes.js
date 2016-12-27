@@ -2,7 +2,7 @@
 
 var express = require('express');
 var router = express.Router();
-var chatAPI = require('./api');
+var chatAPI = require('./controllers/api');
 var path = require('path');
 
 //Static files
@@ -12,9 +12,10 @@ router.use('/', express.static(path.join(__dirname,'/../../../client/browser/app
 router.use('/chat-box', express.static(path.join(__dirname,'/../../../client/browser/apps/chatroom/chat-box')));
 
 router.get('/',function(req,res) {
-
+	
 	res.sendFile(path.join(__dirname + '/../../../client/browser/apps/chatroom/index.htm'));
 })
+
 
 //API
 router.get('/api/chatroom/messages',chatAPI.getMessages);

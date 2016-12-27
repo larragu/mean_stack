@@ -5,7 +5,7 @@ angular.module('chatroomApp')
 .directive('chatroom', function() {
 
 	return {
-		templateUrl: 'chatroom.htm',
+		templateUrl: 'views/chatroom.htm',
 		replace: true,
 		restrict: 'E',
 		controller: 'chatroomCtrl',
@@ -16,7 +16,7 @@ angular.module('chatroomApp')
 .directive('chatHeader', function() {
 
 	return {
-		templateUrl: 'chat-header.htm',
+		templateUrl: 'views/chat-header.htm',
 		replace:true,
 		restrict:'E',
 	}
@@ -26,7 +26,7 @@ angular.module('chatroomApp')
 .directive('chatFooter', function() {
 
 	return {
-		templateUrl: 'chat-footer.htm',
+		templateUrl: 'views/chat-footer.htm',
 		replace:true,
 		restrict:'E',
 	}

@@ -1,20 +1,20 @@
 'use strict';
-angular.module('chatroomApp',['chatbox','btford.socket-io','ngResource','luegg.directives']);
+angular.module('chatroomApp',['chatbox','btford.socket-io','ngResource','luegg.directives'])
 
 
-window.fbAsyncInit = function() {
-	FB.init({
-		appId      : '',
-      	xfbml      : true,
-      	version    : 'v2.8'
-	});
-	FB.AppEvents.logPageView();
-};
+.run(['$rootScope', '$window','chatroomService', function ($rootScope, $window,chatroomService) {  
+    $window.app = {
+        authState: function(state, user) {
+            $rootScope.$apply(function() {
+                switch (state) {
+                    case 'success':
+                        chatroomService.login(user);
+                        break;
+                }
 
-(function(d, s, id){
-	var js, fjs = d.getElementsByTagName(s)[0];
-	if (d.getElementById(id)) {return;}
-	js = d.createElement(s); js.id = id;
-	js.src = "//connect.facebook.net/en_US/sdk.js";
-	fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
+            });
+        }
+
+    };
+
+}]);

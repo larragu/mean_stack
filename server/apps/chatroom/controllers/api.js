@@ -1,7 +1,7 @@
 'use strict';
 
-var User = require('./models/user-schema');
-var Message = require('./models/message-schema');
+var User = require('./../models/user');
+var Message = require('./../models/message-schema');
 
 var chatAPI = function() {
 
