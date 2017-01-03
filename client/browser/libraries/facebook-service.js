@@ -29,7 +29,7 @@ service('facebookService',['authenticationService','$http',
 
 	service.login = function() {
 
-        var url = 'facebook/login',
+        var url = 'auth/facebook/login',
             width = 1000,
             height = 650,
             top = (window.outerHeight - height) / 2,
@@ -40,7 +40,7 @@ service('facebookService',['authenticationService','$http',
 
 	service.checkLoginStatus = function(callback) {
 
-		$http.get('facebook/login-status')
+		$http.get('auth/facebook')
 			.then(function(response) {
 
 				if(response.data) {
@@ -52,7 +52,7 @@ service('facebookService',['authenticationService','$http',
 
 	service.logOut = function(callback) {
 
-		$http.delete('facebook')
+		$http.delete('auth/facebook/logout')
 			.then(function (response) {
 				callback();
 			}, function (response) {

@@ -1,15 +1,32 @@
 var FacebookStrategy = require('passport-facebook').Strategy;
 var User = require('./../../../apps/chatroom/models/user');
 var facebookConfig = require('../../../config/facebook');
-var facebookPassportRoutes = require('./routes');
 var mongoose = require('mongoose');
 
-var facebookPassport = function(passport,app) {
+
+
+var FacebookPassport = function(passport) {
+
+
+    passport.serializeUser(function(user, done) {
+
+        done(null, user._id);
+    });
+
+    passport.deserializeUser(function(id, done) {
+
+        User.findById(id, function(err, user) {
+
+            done(err, user);
+        });
+    });
+
 
     passport.use('facebook', new FacebookStrategy({
         clientID        : facebookConfig.appID,
         clientSecret    : facebookConfig.appSecret,
-        callbackURL     : facebookConfig.callbackUrl
+        callbackURL     : facebookConfig.callbackUrl,
+        profileFields: ["emails", "displayName", "name"]
     },
 
     function(access_token, refresh_token, profile, done) {
@@ -49,9 +66,7 @@ var facebookPassport = function(passport,app) {
         });
 
     }));
-
-	app.use('/',facebookPassportRoutes(passport));
-
 };
 
-module.exports = facebookPassport;
+
+module.exports = FacebookPassport;

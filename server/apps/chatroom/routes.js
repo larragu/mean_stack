@@ -18,8 +18,8 @@ router.get('/',function(req,res) {
 
 
 //API
-router.get('/api/chatroom/messages',chatAPI.getMessages);
-router.get('/api/chatroom/users',chatAPI.getUsers);
+router.get('/messages',chatAPI.getMessages);
+router.get('/users',chatAPI.getUsers);
 
 module.exports = router;
 

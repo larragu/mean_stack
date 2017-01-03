@@ -49,6 +49,4 @@ function($scope,chatroomService,
 	$scope.initialize();
 
 
-
-
 }]);

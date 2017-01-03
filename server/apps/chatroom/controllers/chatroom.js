@@ -2,7 +2,7 @@
 
 var mongoose = require('mongoose');
 var User = require('./../models/user');
-var Message = require('./../models/message-schema');
+var Message = require('./../models/message');
 
 var Chatroom = function(newChatIO,newFeedIO) {
 
@@ -23,7 +23,7 @@ var Chatroom = function(newChatIO,newFeedIO) {
 	  	messageData.username = "Host";
 
 		createMessage(messageData,function() {
-console.log("socket.id: ",socket.id)
+			
 			socket.emit('logged in', {
 				username: userData.username
 

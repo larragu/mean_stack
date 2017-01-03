@@ -53,19 +53,19 @@ function ChatApp(io) {
 	app.use(passport.session());
 
 
-	var facebookPassport = require('./../../plugins/passport/facebook');
-	facebookPassport(passport,app);
-
-	app.set('views',__dirname+'./../../plugins/passport/facebook/');
-    app.set('view engine', 'ejs');
+	var facebookAuthAPI = require('./../../plugins/authentication/facebook')(app,passport);
 
 
 	//Connect to the chatroom database
 	mongoose.connect('mongodb://localhost/chatroom');
 
+
+
+	router.use('/auth',facebookAuthAPI);
+	router.use(chatroomRoutes);
+
 	app.use(router);
 
-	app.use(chatroomRoutes);
 
 
 	//Used for viewing data
